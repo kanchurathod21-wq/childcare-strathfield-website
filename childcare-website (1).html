@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Childcare | Strathfield NSW</title>
+<meta name="description" content="Childcare in Strathfield NSW — a warm, inclusive and  childcare centre focused on school readiness, safety and quality early education.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS CUSTOM PROPERTIES — CHILDCARE DESIGN SYSTEM
+   ============================================================ */
+:root {
+  --color-primary:       #1E8A5E;
+  --color-primary-dark:  #15634A;
+  --color-primary-light: #D6F2E6;
+  --color-secondary:     #F5A623;
+  --color-secondary-dark:#D48A12;
+  --color-accent:        #FF6B4A;
+  --color-accent-light:  #FFEEE9;
+  --color-sky:           #4AADDA;
+  --color-sky-light:     #E3F5FC;
+  --color-surface:       #FFFDF7;
+  --color-surface-alt:   #F4FBF7;
+  --color-dark:          #1A3830;
+  --color-text:          #2C3A35;
+  --color-text-muted:    #6B7E77;
+  --color-border:        #D8EDE4;
+  --color-white:         #FFFFFF;
+
+  --font-display: 'Nunito', sans-serif;
+  --font-body:    'Lato', sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  32px;
+  --radius-xl:  60px;
+  --radius-full:9999px;
+
+  --shadow-sm:  0 2px 12px rgba(30,138,94,0.08);
+  --shadow-md:  0 8px 32px rgba(30,138,94,0.12);
+  --shadow-lg:  0 20px 60px rgba(30,138,94,0.16);
+  --shadow-card:0 4px 24px rgba(0,0,0,0.07);
+
+  --transition-fast: 160ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 600ms cubic-bezier(0.16,1,0.3,1);
+
+  --nav-h: 80px;
+  --max-w: 1180px;
+}
+
+/* ============================================================
+   BASE RESET & GLOBAL
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--color-surface);
+  color: var(--color-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 700; }
+h4 { font-size: 1.1rem; font-weight: 700; }
+p  { max-width: 68ch; }
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+.section    { padding: var(--space-lg) 0; }
+.section--alt { background: var(--color-surface-alt); }
+.text-center { text-align: center; }
+.text-center p { margin: 0 auto; }
+.tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3em 1em;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+}
+.tag--yellow { background: #FEF3D7; color: #8A5C00; }
+.tag--coral  { background: var(--color-accent-light); color: #C0391B; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85em 2em;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn:active { transform: translateY(0); }
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(30,138,94,0.28);
+}
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-dark);
+  box-shadow: 0 4px 20px rgba(245,166,35,0.3);
+}
+.btn--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.btn--outline:hover { background: var(--color-primary); color: white; }
+.btn--white {
+  background: white;
+  color: var(--color-primary);
+}
+.btn--lg { font-size: 1.05rem; padding: 1em 2.2em; }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,253,247,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  transition: box-shadow var(--transition-base);
+}
+.site-header.scrolled { box-shadow: var(--shadow-sm); }
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+.logo-icon {
+  width: 48px; height: 48px;
+  background: var(--color-primary);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.logo-sub { font-size: 0.72rem; font-weight: 600; color: var(--color-text-muted); display: block; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+.nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+.nav-phone {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2.5px;
+  background: var(--color-dark);
+  border-radius: 3px;
+  transition: var(--transition-base);
+}
+
+/* ============================================================
+   PAGE SYSTEM
+   ============================================================ */
+.page { display: none; animation: fadeInPage 0.4s ease; }
+.page.active { display: block; }
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   HOME PAGE — HERO
+   ============================================================ */
+.hero {
+  min-height: calc(100vh - var(--nav-h));
+  background: linear-gradient(135deg, #0F4D35 0%, #1E8A5E 50%, #27A870 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: var(--space-lg) 0;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(245,166,35,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(74,173,218,0.15) 0%, transparent 60%);
+}
+.hero-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-shapes .shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  background: white;
+}
+.hero-shapes .s1 { width: 400px; height: 400px; top: -100px; right: -100px; }
+.hero-shapes .s2 { width: 200px; height: 200px; bottom: 80px; left: 5%; }
+.hero-shapes .s3 { width: 120px; height: 120px; top: 30%; right: 20%; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-content { color: white; }
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 0.4em 1.1em;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.hero h1 { color: white; margin-bottom: 1.2rem; text-shadow: 0 2px 20px rgba(0,0,0,0.2); }
+.hero h1 em { color: var(--color-secondary); font-style: normal; }
+.hero-sub {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  max-width: 52ch;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-trust {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5em 1em;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+}
+.hero-trust-item .icon { font-size: 1rem; }
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-card-stack {
+  position: relative;
+  width: 380px;
+  height: 420px;
+}
+.hero-card {
+  position: absolute;
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+}
+.hero-card-main {
+  width: 300px;
+  top: 20px;
+  left: 40px;
+  background: white;
+  z-index: 2;
+}
+.hero-card-main .card-img {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, var(--color-primary-light), #B8EDD4);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+.hero-card-main h4 { color: var(--color-dark); font-size: 1rem; margin-bottom: 0.3rem; }
+.hero-card-main p  { font-size: 0.82rem; color: var(--color-text-muted); max-width: none; margin: 0; }
+.hero-stat-card {
+  width: 140px;
+  text-align: center;
+  z-index: 3;
+}
+.hero-stat-card.s1 { top: 0; left: 0; background: var(--color-secondary); }
+.hero-stat-card.s2 { bottom: 10px; right: 0; background: var(--color-sky); color: white; }
+.hero-stat-card .num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 900;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.hero-stat-card.s1 .num { color: var(--color-dark); }
+.hero-stat-card.s2 .num { color: white; }
+.hero-stat-card .lbl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* ============================================================
+   TRUST STRIP
+   ============================================================ */
+.trust-strip {
+  background: var(--color-dark);
+  padding: 1.2rem 0;
+  overflow: hidden;
+}
+.trust-strip-inner {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+}
+.trust-item .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  flex-shrink: 0;
+}
+.trust-item .icon { font-size: 1rem; }
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.section-header { margin-bottom: 3rem; }
+.section-header h2 { margin-bottom: 0.75rem; }
+.section-header p { font-size: 1.05rem; color: var(--color-text-muted); }
+
+/* ============================================================
+   SERVICE CARDS
+   ============================================================ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.service-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1.5px solid var(--color-border);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--color-primary-light); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 60px; height: 60px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+.service-icon--green  { background: var(--color-primary-light); }
+.service-icon--yellow { background: #FEF3D7; }
+.service-icon--coral  { background: var(--color-accent-light); }
+.service-icon--sky    { background: var(--color-sky-light); }
+.service-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; color: var(--color-dark); }
+.service-card p  { font-size: 0.9rem; color: var(--color-text-muted); max-width: none; margin: 0; line-height: 1.6; }
+
+/* ============================================================
+   WHY US
+   ============================================================ */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.why-us-visual {
+  position: relative;
+}
+.why-us-blob {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--color-primary-light), #B8EDD4);
+  border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7rem;
+  max-width: 380px;
+  position: relative;
+}
+.why-floating-badge {
+  position: absolute;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 0.8rem 1.2rem;
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.why-floating-badge.b1 { top: 10%; right: -10%; }
+.why-floating-badge.b2 { bottom: 10%; left: -5%; }
+.why-floating-badge .emoji { font-size: 1.2rem; }
+.why-list { display: flex; flex-direction: column; gap: 1.2rem; }
+.why-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.2rem;
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.why-item:hover { border-color: var(--color-primary); box-shadow: var(--shadow-sm); }
+.why-num {
+  width: 36px; height: 36px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.why-item h4 { margin-bottom: 0.25rem; font-size: 1rem; }
+.why-item p  { font-size: 0.87rem; color: var(--color-text-muted); margin: 0; max-width: none; }
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.testimonial-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  border: 1.5px solid var(--color-border);
+  position: relative;
+  transition: box-shadow var(--transition-base);
+}
+.testimonial-card:hover { box-shadow: var(--shadow-md); }
+.stars { color: #F5A623; font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+.testimonial-card blockquote {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.reviewer-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+.av1 { background: var(--color-primary); }
+.av2 { background: var(--color-secondary); color: var(--color-dark) !important; }
+.av3 { background: var(--color-accent); }
+.av4 { background: var(--color-sky); }
+.reviewer-info strong {
+  display: block;
+  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.reviewer-info span {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   CTA BANNER
+   ============================================================ */
+.cta-banner {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  border-radius: var(--radius-xl);
+  padding: 4rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin: var(--space-lg) 0;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% -20%, rgba(245,166,35,0.2), transparent);
+}
+.cta-banner h2 { color: white; margin-bottom: 0.75rem; position: relative; }
+.cta-banner p  { color: rgba(255,255,255,0.8); max-width: 50ch; margin: 0 auto 2rem; position: relative; }
+.cta-actions   { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ============================================================
+   PROGRAMS PAGE
+   ============================================================ */
+.programs-hero {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #F5C842 100%);
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.programs-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(30,138,94,0.15), transparent 60%);
+}
+.programs-hero h1 { color: var(--color-dark); position: relative; }
+.programs-hero p   { color: rgba(26,56,48,0.75); font-size: 1.1rem; max-width: 55ch; margin: 1rem auto 0; position: relative; }
+
+.age-group-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--color-border);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.age-group-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.age-group-header {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.age-emoji { font-size: 2.5rem; }
+.age-group-header h3 { margin-bottom: 0.1rem; }
+.age-group-header span {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+.age-group-body { padding: 0 2rem 2rem; }
+.age-group-body p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1rem; max-width: none; }
+.feature-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 0.3em 0.85em;
+  border-radius: var(--radius-full);
+}
+.pill--yellow { background: #FEF3D7; color: #7A5200; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary), var(--color-primary-light));
+}
+.process-step { text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+.step-num {
+  width: 56px; height: 56px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 16px rgba(30,138,94,0.3);
+}
+.process-step h4 { margin-bottom: 0.5rem; font-size: 1rem; }
+.process-step p  { font-size: 0.85rem; color: var(--color-text-muted); max-width: none; }
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.about-hero {
+  background: linear-gradient(135deg, var(--color-sky-light), #D6F2E6);
+  padding: 4rem 0;
+  text-align: center;
+}
+.about-hero h1 { margin-bottom: 1rem; }
+.about-hero p  { font-size: 1.1rem; color: var(--color-text-muted); max-width: 58ch; margin: 0 auto; }
+
+.origin-story {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 3rem;
+  align-items: center;
+}
+.story-visual {
+  background: linear-gradient(135deg, var(--color-primary), #27A870);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.7;
+  font-style: italic;
+  position: relative;
+}
+.story-visual::before {
+  content: '"';
+  position: absolute;
+  top: 10px; left: 20px;
+  font-size: 6rem;
+  opacity: 0.15;
+  font-family: serif;
+  line-height: 1;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.value-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--color-border);
+}
+.value-icon {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1rem;
+}
+.value-card h4 { margin-bottom: 0.5rem; }
+.value-card p  { font-size: 0.88rem; color: var(--color-text-muted); max-width: none; }
+
+.stats-bar {
+  background: var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.stat-item .stat-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.stat-item .stat-lbl {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.cred-card {
+  background: white;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.cred-icon { font-size: 1.8rem; flex-shrink: 0; }
+.cred-card h4 { font-size: 0.9rem; margin-bottom: 0.1rem; }
+.cred-card p  { font-size: 0.8rem; color: var(--color-text-muted); max-width: none; margin: 0; }
+
+/* ============================================================
+   TESTIMONIALS PAGE
+   ============================================================ */
+.reviews-hero {
+  background: linear-gradient(135deg, #FEF3D7, #FDEAB5);
+  padding: 4rem 0;
+  text-align: center;
+}
+.rating-summary {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.big-rating {
+  text-align: center;
+  flex-shrink: 0;
+}
+.big-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1;
+}
+.big-stars { font-size: 1.3rem; color: #F5A623; letter-spacing: 2px; margin: 0.3rem 0; }
+.big-count { font-size: 0.85rem; color: var(--color-text-muted); }
+.rating-bars { flex: 1; min-width: 200px; }
+.rating-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+.rating-bar-row span:first-child { width: 30px; color: var(--color-text-muted); font-weight: 700; }
+.rating-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.rating-bar-fill {
+  height: 100%;
+  background: var(--color-secondary);
+  border-radius: var(--radius-full);
+  transition: width 1s var(--transition-slow);
+}
+.case-study {
+  background: linear-gradient(135deg, var(--color-surface-alt), white);
+  border: 1.5px solid var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.case-study::before {
+  content: '★★★★★';
+  position: absolute;
+  top: -5px; right: 1.5rem;
+  font-size: 3rem;
+  color: var(--color-secondary);
+  opacity: 0.2;
+}
+.case-study h3 { margin-bottom: 1rem; color: var(--color-primary-dark); }
+.case-study p  { font-size: 0.93rem; line-height: 1.8; max-width: none; }
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-hero {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  padding: 4rem 0;
+  text-align: center;
+  color: white;
+}
+.contact-hero h1 { color: white; }
+.contact-hero p  { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 50ch; margin: 1rem auto 0; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: start;
+}
+.contact-info-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1.5px solid var(--color-border);
+}
+.contact-info-card h3 { margin-bottom: 1.5rem; }
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.contact-info-item:last-child { border-bottom: none; }
+.ci-icon {
+  width: 44px; height: 44px;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.ci-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.ci-value {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.ci-value a:hover { color: var(--color-primary); }
+
+.contact-form-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  border: 1.5px solid var(--color-border);
+}
+.contact-form-card h3 { margin-bottom: 1.5rem; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-group {
+  margin-bottom: 1.2rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--color-dark);
+  margin-bottom: 0.4rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(30,138,94,0.12);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-note {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.map-embed {
+  background: linear-gradient(135deg, var(--color-primary-light), #B8EDD4);
+  border-radius: var(--radius-lg);
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  margin-top: 1.5rem;
+}
+.map-embed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.3), transparent 70%);
+}
+.map-embed .map-text {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  position: relative;
+}
+.hours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.hours-card {
+  background: white;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  text-align: center;
+}
+.hours-card .day { font-family: var(--font-display); font-weight: 800; font-size: 0.85rem; color: var(--color-dark); margin-bottom: 0.3rem; }
+.hours-card .time { font-size: 0.9rem; color: var(--color-primary); font-weight: 700; font-family: var(--font-display); }
+.hours-card .status { font-size: 0.78rem; color: var(--color-text-muted); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--color-dark);
+  color: rgba(255,255,255,0.75);
+  padding: 4rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+.footer-brand .site-logo { color: white; margin-bottom: 1rem; }
+.footer-brand p { font-size: 0.87rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 32ch; }
+.footer-social { display: flex; gap: 0.75rem; }
+.social-btn {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  transition: background var(--transition-fast);
+  cursor: pointer;
+}
+.social-btn:hover { background: var(--color-primary); }
+.footer-col h5 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: white;
+  margin-bottom: 1.2rem;
+}
+.footer-col ul li {
+  margin-bottom: 0.6rem;
+}
+.footer-col ul li a {
+  font-size: 0.87rem;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+.footer-col ul li a:hover { opacity: 1; color: var(--color-secondary); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom p { font-size: 0.82rem; opacity: 0.5; max-width: none; margin: 0; }
+.footer-quality {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(245,166,35,0.15);
+  border: 1px solid rgba(245,166,35,0.3);
+  padding: 0.4em 1em;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item {
+  background: white;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+.faq-item.open { border-color: var(--color-primary); }
+.faq-q {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-align: left;
+  background: white;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.faq-q:hover { background: var(--color-surface-alt); }
+.faq-q .chevron {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  transition: transform var(--transition-base), background var(--transition-fast);
+  flex-shrink: 0;
+}
+.faq-item.open .chevron { transform: rotate(180deg); background: var(--color-primary); color: white; }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow), padding var(--transition-base);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  padding: 0 1.5rem;
+  line-height: 1.7;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 0 1.5rem 1.2rem; }
+
+/* ============================================================
+   MOBILE NAV DRAWER
+   ============================================================ */
+.mobile-nav {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(320px, 100vw);
+  height: 100vh;
+  background: var(--color-surface);
+  z-index: 2000;
+  padding: 2rem;
+  transform: translateX(105%);
+  transition: transform var(--transition-slow);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+  overflow-y: auto;
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.mobile-nav-close {
+  width: 36px; height: 36px;
+  background: var(--color-border);
+  border: none;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background var(--transition-fast);
+}
+.mobile-nav-close:hover { background: var(--color-primary); color: white; }
+.mobile-nav-links { display: flex; flex-direction: column; gap: 0.5rem; }
+.mobile-nav-links a {
+  padding: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.mobile-nav-links a:hover,
+.mobile-nav-links a.active { background: var(--color-primary-light); color: var(--color-primary-dark); }
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1999;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.overlay.show { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s var(--transition-slow);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .hero-inner      { grid-template-columns: 1fr; }
+  .hero-visual     { display: none; }
+  .why-us-grid     { grid-template-columns: 1fr; }
+  .why-us-visual   { display: none; }
+  .origin-story    { grid-template-columns: 1fr; }
+  .values-grid     { grid-template-columns: 1fr 1fr; }
+  .stats-bar       { grid-template-columns: 1fr 1fr; }
+  .contact-grid    { grid-template-columns: 1fr; }
+  .footer-grid     { grid-template-columns: 1fr 1fr; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger       { display: flex; }
+  .process-steps::before { display: none; }
+  .form-row        { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .values-grid     { grid-template-columns: 1fr; }
+  .stats-bar       { grid-template-columns: 1fr 1fr; }
+  .footer-grid     { grid-template-columns: 1fr; }
+  .cta-banner      { padding: 3rem 1.5rem; border-radius: var(--radius-lg); }
+  .hero-trust      { gap: 0.75rem; }
+  .rating-summary  { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<header class="site-header" id="site-header">
+  <div class="nav-inner">
+    <div class="site-logo">
+      <div class="logo-icon">🌱</div>
+      <div>
+        Childcare
+        <span class="logo-sub">Early Learning Centre</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a>
+      <a href="#" onclick="showPage('programs')" id="nav-programs">Programs</a>
+      <a href="#" onclick="showPage('about')" id="nav-about">About Us</a>
+      <a href="#" onclick="showPage('reviews')" id="nav-reviews">Reviews</a>
+      <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="#">📞 Call Now</a>
+      <a href="#" onclick="showPage('contact')" class="btn btn--primary">Book a Tour</a>
+    </div>
+    <button class="hamburger" onclick="openMobileNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="overlay" id="overlay" onclick="closeMobileNav()"></div>
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav-header">
+    <div class="site-logo" style="font-size:0.95rem;">
+      <div class="logo-icon" style="width:38px;height:38px;font-size:1.2rem;">🌱</div>
+      Childcare
+    </div>
+    <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  </div>
+  <nav class="mobile-nav-links">
+    <a href="#" onclick="showPage('home');closeMobileNav()" id="mnav-home" class="active">🏠 Home</a>
+    <a href="#" onclick="showPage('programs');closeMobileNav()" id="mnav-programs">📚 Programs</a>
+    <a href="#" onclick="showPage('about');closeMobileNav()" id="mnav-about">💚 About Us</a>
+    <a href="#" onclick="showPage('reviews');closeMobileNav()" id="mnav-reviews">⭐ Reviews</a>
+    <a href="#" onclick="showPage('contact');closeMobileNav()" id="mnav-contact">📞 Contact</a>
+  </nav>
+  <div style="margin-top:2rem;">
+    <a href="#" class="btn btn--primary" style="width:100%;justify-content:center;margin-bottom:0.75rem;">📞 Call Us Now</a>
+    <a href="#" onclick="showPage('contact');closeMobileNav()" class="btn btn--outline" style="width:100%;justify-content:center;">Book a Tour</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE: HOME
+     ============================================================ -->
+<main class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-shapes">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-tag">⭐ Trusted in Strathfield since 2001</div>
+          <h1>Where Strathfield's Children <em>Flourish</em> Every Single Day</h1>
+          <p class="hero-sub">A warm, inclusive and  early learning centre in Strathfield NSW — where qualified educators nurture your child's confidence, curiosity and school readiness.</p>
+          <div class="hero-actions">
+            <a href="#" onclick="showPage('contact')" class="btn btn--secondary btn--lg">📅 Book a Tour</a>
+            <a href="#" class="btn btn--white btn--lg">📞 Call Now</a>
+          </div>
+          <div class="hero-trust">
+            
+            <div class="hero-trust-item"><span class="icon">🎓</span> EYLF Curriculum</div>
+            <div class="hero-trust-item"><span class="icon">✅</span> Approved Provider</div>
+            <div class="hero-trust-item"><span class="icon">🌍</span> Multicultural Care</div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <div class="hero-stat-card hero-card s1">
+              <span class="num">20+</span>
+              <span class="lbl">Years Caring for<br>Strathfield Families</span>
+            </div>
+            <div class="hero-card hero-card-main">
+              <div class="card-img">🌟</div>
+              <h4>School Readiness Program</h4>
+              <p>Building skills, confidence and a love of learning before the big leap to school.</p>
+            </div>
+            <div class="hero-stat-card hero-card s2">
+              <span class="num">⭐ 4.9</span>
+              <span class="lbl">Family Satisfaction<br>Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <div class="trust-strip">
+    <div class="container">
+      <div class="trust-strip-inner">
+        <div class="trust-item"><div class="dot"></div><span class="icon">🏛️</span> ACECQA Approved Provider</div>
+        <div class="trust-item"><div class="dot"></div><span class="icon">📋</span> Early Years Learning Framework</div>
+        
+        <div class="trust-item"><div class="dot"></div><span class="icon">👩‍🏫</span> Qualified & Experienced Educators</div>
+        <div class="trust-item"><div class="dot"></div><span class="icon">🛡️</span> Child Safe Workplace</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Overview -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="tag">Our Programs</div>
+        <h2>Everything Your Child Needs to Thrive</h2>
+        <p>We offer a comprehensive range of early childhood programs designed to meet every child's individual developmental needs.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon service-icon--green">👶</div>
+          <h3>Nursery & Toddlers</h3>
+          <p>A gentle, nurturing environment for our youngest learners, supporting attachment, exploration and sensory development from 6 weeks to 2 years.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon service-icon--yellow">🎨</div>
+          <h3>Early Preschool</h3>
+          <p>Play-based learning for children aged 2–3 that builds language, creativity and social skills in a safe, stimulating environment.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon service-icon--coral">🎒</div>
+          <h3>School Readiness</h3>
+          <p>Our flagship pre-kindergarten program for children aged 4–5 — preparing them academically, socially and emotionally for the transition to school.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon service-icon--sky">🥗</div>
+          <h3>Nutritious Catering</h3>
+          <p>Freshly prepared, nutritious freshly prepared meals and snacks, supporting the cultural and dietary needs of our diverse community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="section">
+    <div class="container">
+      <div class="why-us-grid">
+        <div class="why-us-visual reveal">
+          <div class="why-us-blob">🏡
+            <div class="why-floating-badge b1"><span class="emoji">🌿</span> Inclusive Environment</div>
+            <div class="why-floating-badge b2"><span class="emoji">❤️</span> Family Partnerships</div>
+          </div>
+        </div>
+        <div>
+          <div class="tag">Why Choose Us</div>
+          <h2 style="margin-bottom:1.5rem;">Strathfield's Most Trusted Early Learning Centre</h2>
+          <div class="why-list">
+            <div class="why-item reveal">
+              <div class="why-num">1</div>
+              <div>
+                <h4>Qualified, Caring Educators</h4>
+                <p>Every member of our team holds relevant early childhood qualifications and undergoes regular professional development. Your child is always in experienced, dedicated hands.</p>
+              </div>
+            </div>
+            <div class="why-item reveal reveal-delay-1">
+              <div class="why-num">2</div>
+              <div>
+                <h4>Inclusive Practices</h4>
+                <p>We proudly serve a diverse community with a certified quality kitchen and an inclusive, culturally sensitive approach that respects your family's values and traditions.</p>
+              </div>
+            </div>
+            <div class="why-item reveal reveal-delay-2">
+              <div class="why-num">3</div>
+              <div>
+                <h4>EYLF-Based Curriculum</h4>
+                <p>Our programs are grounded in Australia's Early Years Learning Framework — ensuring every child achieves strong developmental outcomes and is genuinely ready for school.</p>
+              </div>
+            </div>
+            <div class="why-item reveal reveal-delay-3">
+              <div class="why-num">4</div>
+              <div>
+                <h4>Safety, Compliance & Quality</h4>
+                <p>We maintain rigorous compliance standards, regular safety audits and a transparent approach to quality care — so you drop your child off every morning with complete peace of mind.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Testimonial -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="tag">Families Love Us</div>
+        <h2>Hear From Our Strathfield Community</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Childcare has been an incredible experience for our son. The educators genuinely care, and the quality kitchen gives us complete peace of mind. He started school this year and was so far ahead of his peers — a testament to the fantastic learning he received here."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av1">FA</div>
+            <div class="reviewer-info">
+              <strong>Fatima A.</strong>
+              <span>Strathfield — Preschool Parent</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars">★★★★★</div>
+          <blockquote>"The staff are so warm and welcoming. My daughter was very shy when she started, and within a few months she was thriving socially and couldn't wait to get to daycare each morning. The team truly goes above and beyond for every child."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av2">MK</div>
+            <div class="reviewer-info">
+              <strong>Maryam K.</strong>
+              <span>Strathfield — Toddler Parent</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="stars">★★★★★</div>
+          <blockquote>"We've had two children go through Childcare and both transitioned to school with remarkable confidence. The centre feels like a second family — diverse, inclusive, professional and genuinely invested in each child's growth."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av3">OL</div>
+            <div class="reviewer-info">
+              <strong>Omar L.</strong>
+              <span>Casula — Two-time Family</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Ready to Tour Childcare?</h2>
+      <p>Come and see the warmth, learning and community that sets us apart. Tours are free, friendly and obligation-free.</p>
+      <div class="cta-actions">
+        <a href="#" onclick="showPage('contact')" class="btn btn--secondary btn--lg">📅 Book a Free Tour</a>
+        <a href="#" class="btn btn--white btn--lg">📞 Call Call Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Preview -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <div class="section-header text-center reveal">
+        <div class="tag">Quick Answers</div>
+        <h2>Common Questions From Families</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is your kitchen really inclusive-certified? <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">Yes — we operate a fully quality kitchen and ensure all meals and snacks served at our centre meet inclusive dietary requirements. This is a core part of how we serve Strathfield's diverse community, and something our families trust us deeply for.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What ages do you cater for? <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">We welcome children from 6 weeks of age through to school age (5 years). Our programs are tailored by age group: Nursery (6 weeks–2 years), Early Preschool (2–3 years), and our School Readiness program (3–5 years).</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How do I know my child is learning, not just being cared for? <span class="chevron">▼</span>
+          </button>
+          <div class="faq-a">Our programs are based on Australia's Early Years Learning Framework (EYLF), ensuring intentional learning is embedded in every activity and routine. We provide families with regular developmental progress updates and are always happy to discuss your child's journey.</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="#" onclick="showPage('contact')" class="btn btn--outline">See All FAQs</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PAGE: PROGRAMS
+     ============================================================ -->
+<main class="page" id="page-programs">
+
+  <section class="programs-hero">
+    <div class="container">
+      <div class="tag tag--yellow">Our Programs</div>
+      <h1>Learning Programs Built for Every Stage</h1>
+      <p>From our youngest nursery babies to our school-ready preschoolers — every program at Childcare is thoughtfully designed around your child's developmental needs.</p>
+    </div>
+  </section>
+
+  <!-- Age Groups -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="tag">Age-Based Programs</div>
+        <h2>Tailored Care from 6 Weeks to School Age</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="age-group-card reveal reveal-delay-1">
+          <div class="age-group-header" style="background: var(--color-primary-light);">
+            <div class="age-emoji">👶</div>
+            <div>
+              <h3>Nursery</h3>
+              <span>6 weeks – 2 years</span>
+            </div>
+          </div>
+          <div class="age-group-body">
+            <p>Our nursery is a warm, secure haven for our youngest learners. Educators build trusting relationships that provide the emotional foundation for all future learning. Routines are predictable, environments are calming, and sensory exploration is at the heart of every day.</p>
+            <div class="feature-pills">
+              <span class="pill">Attachment Focus</span>
+              <span class="pill">Sensory Play</span>
+              <span class="pill">Sleep Routines</span>
+              <span class="pill">Inclusive Meals</span>
+            </div>
+          </div>
+        </div>
+        <div class="age-group-card reveal reveal-delay-2">
+          <div class="age-group-header" style="background: #FEF3D7;">
+            <div class="age-emoji">🎨</div>
+            <div>
+              <h3>Early Preschool</h3>
+              <span>2 – 3 years</span>
+            </div>
+          </div>
+          <div class="age-group-body">
+            <p>At this age, language explodes and independence begins to blossom. Our early preschool program uses intentional play, creative arts and storytelling to build vocabulary, social confidence and early literacy skills in a joyful, encouraging setting.</p>
+            <div class="feature-pills">
+              <span class="pill">Language Rich</span>
+              <span class="pill">Creative Arts</span>
+              <span class="pill">Social Skills</span>
+              <span class="pill pill--yellow">EYLF Aligned</span>
+            </div>
+          </div>
+        </div>
+        <div class="age-group-card reveal reveal-delay-3">
+          <div class="age-group-header" style="background: var(--color-accent-light);">
+            <div class="age-emoji">📖</div>
+            <div>
+              <h3>Preschool</h3>
+              <span>3 – 4 years</span>
+            </div>
+          </div>
+          <div class="age-group-body">
+            <p>A critical period for cognitive growth. Our 3-year preschool program introduces structured learning alongside child-led inquiry — developing mathematical thinking, problem solving and a genuine love of books and stories that sets them up for life.</p>
+            <div class="feature-pills">
+              <span class="pill">Maths Concepts</span>
+              <span class="pill">Literacy Focus</span>
+              <span class="pill">STEM Exploration</span>
+              <span class="pill pill--yellow">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+        <div class="age-group-card reveal reveal-delay-4">
+          <div class="age-group-header" style="background: var(--color-sky-light);">
+            <div class="age-emoji">🎒</div>
+            <div>
+              <h3>School Readiness</h3>
+              <span>4 – 5 years</span>
+            </div>
+          </div>
+          <div class="age-group-body">
+            <p>Our flagship pre-kindergarten program gives children every advantage heading into school. From phonics and numeracy to emotional regulation and independence skills — graduates of this program consistently thrive in Kindergarten and beyond.</p>
+            <div class="feature-pills">
+              <span class="pill">Phonics & Reading</span>
+              <span class="pill">Numeracy</span>
+              <span class="pill">Emotional Regulation</span>
+              <span class="pill pill--yellow">School Readiness</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section class="section">
+    <div class="container">
+      <div class="why-us-grid">
+        <div>
+          <div class="tag">Our Approach</div>
+          <h2 style="margin-bottom:1rem;">The Early Years Learning Framework</h2>
+          <p style="margin-bottom:1.5rem;">All our programs are built on the Australian Government's Early Years Learning Framework (EYLF) — "Belonging, Being and Becoming." This national framework ensures every child at Childcare receives intentional, high-quality early education.</p>
+          <div class="why-list">
+            <div class="why-item reveal">
+              <div class="why-num" style="background:#4AADDA;">B</div>
+              <div><h4>Belonging</h4><p>Every child and family feels connected, valued and welcomed — especially important in our rich multicultural community.</p></div>
+            </div>
+            <div class="why-item reveal reveal-delay-1">
+              <div class="why-num" style="background:var(--color-secondary);color:#1A3830;">B</div>
+              <div><h4>Being</h4><p>We celebrate and honour each child's current stage of childhood, not just who they are becoming.</p></div>
+            </div>
+            <div class="why-item reveal reveal-delay-2">
+              <div class="why-num">B</div>
+              <div><h4>Becoming</h4><p>We nurture growth and identity — supporting children to develop skills, knowledge and confidence at their own pace.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div style="background:var(--color-primary);border-radius:var(--radius-lg);padding:2rem;color:white;">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">🥗</div>
+            <h3 style="color:white;font-size:1.2rem;margin-bottom:0.75rem;">Quality Kitchen — Every Day</h3>
+            <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;max-width:none;">Our full-service quality kitchen prepares fresh, nutritious meals and snacks every day. We cater to dietary requirements and ensure all children enjoy wholesome food that respects their family's values.</p>
+          </div>
+          <div style="background:#FEF3D7;border-radius:var(--radius-lg);padding:2rem;">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">🛡️</div>
+            <h3 style="font-size:1.2rem;margin-bottom:0.75rem;">Safety First, Always</h3>
+            <p style="font-size:0.9rem;color:var(--color-text-muted);max-width:none;">Our centre meets and exceeds all NSW regulatory requirements. All educators hold valid Working With Children Checks, and our premises are regularly safety-audited for your child's protection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Enrolment Works -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="tag">Getting Started</div>
+        <h2>How to Enrol at Childcare</h2>
+        <p>Joining our centre is simple. We guide families every step of the way.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">1</div>
+          <h4>Book a Tour</h4>
+          <p>Visit our centre, meet the team and see our learning spaces. It's free, friendly and no obligation.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">2</div>
+          <h4>Application</h4>
+          <p>Complete a simple enrolment form. We'll help with Child Care Subsidy (CCS) paperwork too.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">3</div>
+          <h4>Orientation</h4>
+          <p>Your child attends a relaxed orientation session to settle in before their first full day.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num">4</div>
+          <h4>First Day!</h4>
+          <p>Drop off with confidence, knowing your child is safe, happy and learning every moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <div class="section-header text-center reveal">
+        <div class="tag">FAQ</div>
+        <h2>Common Program Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you offer Child Care Subsidy (CCS)? <span class="chevron">▼</span></button>
+          <div class="faq-a">Yes, we are a registered provider for the Australian Government Child Care Subsidy (CCS). Most families are eligible and our team will guide you through the application process to ensure you receive your full entitlement.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What are your opening hours? <span class="chevron">▼</span></button>
+          <div class="faq-a">We are open Monday to Friday, 7:00am – 6:00pm, 50 weeks per year. We close for approximately two weeks over the Christmas/New Year period and on NSW public holidays.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Are meals included in the fees? <span class="chevron">▼</span></button>
+          <div class="faq-a">Yes! All meals, morning tea, lunch and afternoon tea are included in your daily fee. Our quality kitchen prepares fresh, nutritious food daily. We accommodate most dietary requirements — just let us know at enrolment.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is the educator-to-child ratio? <span class="chevron">▼</span></button>
+          <div class="faq-a">We strictly follow and often exceed NSW ratio requirements: 1:4 for children under 2 years, 1:5 for 2-year-olds, and 1:10 for preschool-age children. Lower ratios mean more individual attention and care for every child.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is your approach to school readiness? <span class="chevron">▼</span></button>
+          <div class="faq-a">Our School Readiness program covers literacy, phonics, numeracy, social skills, emotional regulation and independence. We work closely with families and, where appropriate, with receiving schools to ensure every child transitions with confidence and capability.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Curious About Our Programs?</h2>
+      <p>The best way to understand what we offer is to come and see it for yourself. Book your free centre tour today.</p>
+      <div class="cta-actions">
+        <a href="#" onclick="showPage('contact')" class="btn btn--secondary btn--lg">📅 Book a Free Tour</a>
+        <a href="#" class="btn btn--white btn--lg">📞 Call Now</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ============================================================
+     PAGE: ABOUT
+     ============================================================ -->
+<main class="page" id="page-about">
+
+  <section class="about-hero">
+    <div class="container">
+      <div class="tag">Our Story</div>
+      <h1>A Centre Built on Community, Care & Culture</h1>
+      <p>Childcare has been a trusted part of Strathfield's community for over two decades — nurturing thousands of children and building lasting partnerships with families.</p>
+    </div>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="section">
+    <div class="container">
+      <div class="origin-story">
+        <div class="story-visual reveal">
+          <p>"Strathfield has always been a rich, vibrant, multicultural community — and every family deserves an early learning centre that truly reflects and honours that diversity."</p>
+          <p style="margin-top:1.5rem;font-size:0.9rem;opacity:0.8;">— The Childcare Team</p>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="tag">Our Origin</div>
+          <h2 style="margin-bottom:1rem;">Why We Started Childcare</h2>
+          <p style="margin-bottom:1rem;">Childcare was founded with a clear mission: to provide Strathfield families with high-quality, inclusive early education in a warm and welcoming environment. From the very beginning, we set out to be a centre that genuinely reflected our community.</p>
+          <p style="margin-bottom:1rem;">We recognised that many families in Strathfield come from diverse cultural backgrounds — and that finding a centre with a quality kitchen, culturally sensitive care and qualified educators who understood their needs was both difficult and deeply important.</p>
+          <p>Over more than two decades, we've built something special: a centre where children thrive, families trust us deeply, and educators love coming to work. We are proud of our long-standing reputation and even prouder of the many children who started their journey with us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="tag">What We Stand For</div>
+        <h2>Our Core Values</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon" style="background:var(--color-primary-light);">❤️</div>
+          <h4>Inclusion & Belonging</h4>
+          <p>Every child and family is welcomed, respected and celebrated here — regardless of culture, background or belief.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon" style="background:#FEF3D7;">🌱</div>
+          <h4>Quality Learning</h4>
+          <p>We are committed to evidence-based, EYLF-aligned early education that gives every child the strongest possible foundation.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon" style="background:var(--color-sky-light);">🤝</div>
+          <h4>Partnership with Families</h4>
+          <p>We believe families are a child's first educator. We communicate openly, listen actively and work alongside you every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="container">
+      <div class="stats-bar reveal">
+        <div class="stat-item">
+          <span class="stat-num">20+</span>
+          <span class="stat-lbl">Years Serving Strathfield</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Quality Kitchen</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">⭐ 4.9</span>
+          <span class="stat-lbl">Family Satisfaction Rating</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">EYLF</span>
+          <span class="stat-lbl">Accredited Curriculum</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="tag">Credentials & Compliance</div>
+        <h2>You Can Trust Us Completely</h2>
+      </div>
+      <div class="credentials-grid">
+        <div class="cred-card reveal">
+          <div class="cred-icon">🏛️</div>
+          <div>
+            <h4>ACECQA Approved Provider</h4>
+            <p>Registered with the Australian Children's Education & Care Quality Authority</p>
+          </div>
+        </div>
+        <div class="cred-card reveal reveal-delay-1">
+          <div class="cred-icon">📋</div>
+          <div>
+            <h4>Early Years Learning Framework</h4>
+            <p>All programs are EYLF-aligned and meet National Quality Standards</p>
+          </div>
+        </div>
+        <div class="cred-card reveal reveal-delay-2">
+          <div class="cred-icon">🥗</div>
+          <div>
+            <h4>Quality Kitchen</h4>
+            <p>Fully quality catering prepared fresh on-site every day</p>
+          </div>
+        </div>
+        <div class="cred-card reveal reveal-delay-3">
+          <div class="cred-icon">🛡️</div>
+          <div>
+            <h4>Working With Children Checks</h4>
+            <p>All educators and staff hold current WWC Checks</p>
+          </div>
+        </div>
+        <div class="cred-card reveal">
+          <div class="cred-icon">🔥</div>
+          <div>
+            <h4>Food Safety Certification</h4>
+            <p>Our kitchen team holds current food handling & safety certifications</p>
+          </div>
+        </div>
+        <div class="cred-card reveal reveal-delay-1">
+          <div class="cred-icon">💊</div>
+          <div>
+            <h4>First Aid Certified</h4>
+            <p>All educators hold current First Aid, CPR and Anaphylaxis certifications</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Come and Meet Our Team</h2>
+      <p>A tour is the best way to experience what makes Childcare truly special. We'd love to show you around.</p>
+      <div class="cta-actions">
+        <a href="#" onclick="showPage('contact')" class="btn btn--secondary btn--lg">📅 Book a Free Tour</a>
+        <a href="#" class="btn btn--white btn--lg">📞 Call Call Now</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ============================================================
+     PAGE: REVIEWS
+     ============================================================ -->
+<main class="page" id="page-reviews">
+
+  <section class="reviews-hero">
+    <div class="container text-center">
+      <div class="tag tag--yellow">Parent Reviews</div>
+      <h1>What Strathfield Families Say About Us</h1>
+      <p style="font-size:1.1rem;color:var(--color-text-muted);max-width:52ch;margin:1rem auto 0;">We let our families do the talking. Here's what parents across Strathfield, Casula, Prestons and the wider south-west Sydney community have shared about their experience with us.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="rating-summary reveal">
+        <div class="big-rating">
+          <div class="big-num">4.9</div>
+          <div class="big-stars">★★★★★</div>
+          <div class="big-count">Based on Google & Facebook Reviews</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-row"><span>5★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:92%"></div></div><span style="font-size:0.8rem;color:var(--color-text-muted);">92%</span></div>
+          <div class="rating-bar-row"><span>4★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:6%"></div></div><span style="font-size:0.8rem;color:var(--color-text-muted);">6%</span></div>
+          <div class="rating-bar-row"><span>3★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:2%"></div></div><span style="font-size:0.8rem;color:var(--color-text-muted);">2%</span></div>
+          <div class="rating-bar-row"><span>2★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span style="font-size:0.8rem;color:var(--color-text-muted);">0%</span></div>
+          <div class="rating-bar-row"><span>1★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span style="font-size:0.8rem;color:var(--color-text-muted);">0%</span></div>
+        </div>
+        <div style="text-align:center;">
+          <a href="https://www.facebook.com/youngachieverselc/" target="_blank" class="btn btn--outline" style="margin-bottom:0.75rem;display:block;">Leave Us a Review ↗</a>
+          <p style="font-size:0.8rem;color:var(--color-text-muted);max-width:none;margin:0;">See all reviews on Facebook</p>
+        </div>
+      </div>
+
+      <!-- Review Cards -->
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Absolutely love this centre. My son has been attending for 3 years and the change in him has been remarkable. He's confident, kind and started kindy reading and writing already. The teachers are exceptional."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av1">SA</div>
+            <div class="reviewer-info"><strong>Sara A.</strong><span>Strathfield, School Readiness Parent</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars">★★★★★</div>
+          <blockquote>"The quality kitchen was the first thing that drew us to Childcare, but it's the warm community and caring staff that keeps us here. Two years in and we couldn't imagine anywhere else for our daughter."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av2">HM</div>
+            <div class="reviewer-info"><strong>Hana M.</strong><span>Casula, Preschool Parent</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars">★★★★★</div>
+          <blockquote>"From the moment we walked through the door for our tour, we felt at home. The director is incredibly welcoming and the whole team genuinely cares about the children. Highly recommend to any Strathfield family."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av3">TK</div>
+            <div class="reviewer-info"><strong>Tariq K.</strong><span>Strathfield, Nursery Parent</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>"My daughter has come so far since starting here. The progress reports are detailed, the communication is excellent, and I love how much they celebrate every milestone. It's a truly special place."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av4">LD</div>
+            <div class="reviewer-info"><strong>Layla D.</strong><span>Prestons, Preschool Parent</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars">★★★★★</div>
+          <blockquote>"We're a multicultural family and finding a centre that understands our needs was so important. Childcare gets it. The educators are warm, inclusive and our boys absolutely love going every morning."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av1">RN</div>
+            <div class="reviewer-info"><strong>Rima N.</strong><span>Strathfield, Two-Child Family</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars">★★★★★</div>
+          <blockquote>"I was nervous about leaving my baby at daycare but the nursery team put my mind completely at ease. They send updates throughout the day and genuinely treat every child like their own. A blessing for working parents."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar av2">ZA</div>
+            <div class="reviewer-info"><strong>Zainab A.</strong><span>Casula, Nursery Parent</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="tag">Family Stories</div>
+        <h2>A Snapshot From One of Our Families</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;" class="reveal">
+        <div class="case-study">
+          <h3>🎒 From Shy Toddler to Confident Kindergartener</h3>
+          <p>When Mariam's parents first enrolled her at Childcare at age 2, she was extremely shy and had difficulty separating from her mother. The nursery and early preschool teams worked patiently over many months to build her trust and confidence.</p>
+          <p style="margin-top:1rem;">By the time she entered our School Readiness program at age 4, Mariam was one of the most enthusiastic participants in every group activity. She started Kindergarten at a local Strathfield primary school last year — her teacher told her family she was one of the most prepared and socially capable students in the class.</p>
+          <p style="margin-top:1rem;font-style:italic;color:var(--color-primary-dark);">"We never imagined she'd come this far. Childcare changed everything." — Mariam's Mum</p>
+        </div>
+        <div class="case-study" style="background:linear-gradient(135deg,#FEF3D7,#FFF);">
+          <h3>🥗 Finding a Centre That Felt Like Home</h3>
+          <p>For Ahmed and his family — practising Muslims from Strathfield — finding a childcare centre with a quality kitchen and a culturally respectful environment was non-negotiable.</p>
+          <p style="margin-top:1rem;">After visiting several centres in the area, they found Childcare. The certified quality kitchen, the warm welcome from staff, and the centre's long track record in the local community gave them the confidence they needed.</p>
+          <p style="margin-top:1rem;">Three years on, both their children have thrived here. Ahmed describes Childcare as "an extension of our family — a place where our values are not just tolerated but celebrated."</p>
+          <p style="margin-top:1rem;font-style:italic;color:var(--color-secondary-dark);">"It's more than childcare. It's community." — Ahmed, Strathfield Parent</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Ready to Join Our Community?</h2>
+      <p>Come and see what our families are talking about. Tours are always free and warmly welcomed.</p>
+      <div class="cta-actions">
+        <a href="#" onclick="showPage('contact')" class="btn btn--secondary btn--lg">📅 Book a Free Tour</a>
+        <a href="#" class="btn btn--white btn--lg">📞 Call Now</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ============================================================
+     PAGE: CONTACT
+     ============================================================ -->
+<main class="page" id="page-contact">
+
+  <section class="contact-hero">
+    <div class="container">
+      <div class="tag" style="background:rgba(255,255,255,0.2);color:white;border:1px solid rgba(255,255,255,0.3);">Get In Touch</div>
+      <h1>We'd Love to Meet Your Family</h1>
+      <p>Book a tour, ask a question, or just say hello — no obligation and no pressure. We respond to all enquiries within 1 business day.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Info -->
+        <div>
+          <div class="contact-info-card reveal">
+            <h3>Centre Details</h3>
+            <div class="contact-info-item">
+              <div class="ci-icon">📍</div>
+              <div>
+                <span class="ci-label">Address</span>
+                <span class="ci-value">23 Boundary Road<br>Strathfield NSW</span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon">📞</div>
+              <div>
+                <span class="ci-label">Phone</span>
+                <span class="ci-value"><a href="#">Call Now</a></span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon">🌐</div>
+              <div>
+                <span class="ci-label">Facebook</span>
+                <span class="ci-value"><a href="https://www.facebook.com/youngachieverselc/" target="_blank">facebook.com/youngachieverselc</a></span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon">⏰</div>
+              <div>
+                <span class="ci-label">Hours</span>
+                <span class="ci-value">Mon–Fri: 7:00am – 6:00pm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-embed reveal" style="margin-top:1.5rem;">
+            <div style="font-size:3rem;position:relative;z-index:1;">📍</div>
+            <div class="map-text">
+              23 Boundary Road, Strathfield NSW
+              <br><a href="https://maps.google.com/?q=23+Boundary+Road+Strathfield+NSW+2170" target="_blank" style="color:var(--color-primary);font-size:0.85rem;text-decoration:underline;">Open in Google Maps ↗</a>
+            </div>
+          </div>
+
+          <div class="hours-grid reveal" style="margin-top:0;">
+            <div class="hours-card">
+              <div class="day">Monday – Friday</div>
+              <div class="time">7:00am – 6:00pm</div>
+              <div class="status">Open 50 weeks/year</div>
+            </div>
+            <div class="hours-card">
+              <div class="day">Saturday & Sunday</div>
+              <div class="time">Closed</div>
+              <div class="status">Weekend closure</div>
+            </div>
+            <div class="hours-card">
+              <div class="day">Public Holidays</div>
+              <div class="time">Closed</div>
+              <div class="status">NSW public holidays</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-card reveal reveal-delay-1">
+          <h3>Book a Tour or Send an Enquiry</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" placeholder="Your first name">
+            </div>
+            <div class="form-group">
+              <label>Last Name *</label>
+              <input type="text" placeholder="Your last name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" placeholder="(02) XXXX XXXX">
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Child's Age / Date of Birth</label>
+            <input type="text" placeholder="e.g. 3 years, or DOB">
+          </div>
+          <div class="form-group">
+            <label>I'm enquiring about</label>
+            <select>
+              <option>Booking a Centre Tour</option>
+              <option>Nursery (6 weeks – 2 years)</option>
+              <option>Early Preschool (2–3 years)</option>
+              <option>Preschool (3–4 years)</option>
+              <option>School Readiness (4–5 years)</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message / Questions</label>
+            <textarea placeholder="Tell us a little about your child or any questions you have…"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Preferred Contact Method</label>
+            <select>
+              <option>Phone Call</option>
+              <option>Email</option>
+              <option>Either is fine</option>
+            </select>
+          </div>
+          <button onclick="submitForm()" class="btn btn--primary" style="width:100%;justify-content:center;font-size:1rem;padding:1em 2em;">Send Enquiry 📨</button>
+          <p class="form-note">🔒 We respect your privacy and will never share your details. We respond within 1 business day.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact FAQ -->
+  <section class="section section--alt">
+    <div class="container" style="max-width:760px;">
+      <div class="section-header text-center reveal">
+        <div class="tag">Before You Call</div>
+        <h2>Helpful Quick Answers</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What happens after I submit a tour request? <span class="chevron">▼</span></button>
+          <div class="faq-a">We'll contact you within 1 business day to confirm a time that works for your family. Tours typically take 30–45 minutes and give you a chance to meet the team, see the learning spaces and ask any questions you have. There's absolutely no obligation.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is there a waiting list? <span class="chevron">▼</span></button>
+          <div class="faq-a">Demand for places at Childcare is strong, particularly for our School Readiness program. We recommend enquiring early — even if you're not starting for 6–12 months. Contact us today and we'll let you know availability for your child's age group.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do I need to bring anything to the tour? <span class="chevron">▼</span></button>
+          <div class="faq-a">No preparation needed — just come along with any questions on your mind. If you'd like to start the enrolment process after your tour, we'll provide all the forms you need. Feel free to bring your child along too — they often love visiting!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER (shown on all pages)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="site-logo" style="color:white;margin-bottom:1rem;">
+          <div class="logo-icon" style="background:rgba(255,255,255,0.15);">🌱</div>
+          <div>
+            Childcare
+            <span class="logo-sub" style="color:rgba(255,255,255,0.5);">Early Learning Centre</span>
+          </div>
+        </div>
+        <p>A warm, inclusive and  early learning centre in Strathfield NSW — nurturing children's confidence, wellbeing and school readiness since 2001.</p>
+        <div class="footer-quality">🥗 Quality Kitchen</div>
+        <div class="footer-social" style="margin-top:1rem;">
+          <a href="https://www.facebook.com/youngachieverselc/" target="_blank" class="social-btn" title="Facebook">f</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Our Programs</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('programs')">Nursery (6wk – 2yr)</a></li>
+          <li><a href="#" onclick="showPage('programs')">Early Preschool</a></li>
+          <li><a href="#" onclick="showPage('programs')">Preschool</a></li>
+          <li><a href="#" onclick="showPage('programs')">School Readiness</a></li>
+          <li><a href="#" onclick="showPage('programs')">Nutritious Catering</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('home')">Home</a></li>
+          <li><a href="#" onclick="showPage('about')">About Us</a></li>
+          <li><a href="#" onclick="showPage('reviews')">Reviews</a></li>
+          <li><a href="#" onclick="showPage('contact')">Book a Tour</a></li>
+          <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <ul>
+          <li style="margin-bottom:0.75rem;">
+            <span style="font-size:0.85rem;opacity:0.6;display:block;margin-bottom:0.2rem;">📍 Address</span>
+            <span style="font-size:0.87rem;opacity:0.85;">23 Boundary Rd, Strathfield NSW</span>
+          </li>
+          <li style="margin-bottom:0.75rem;">
+            <span style="font-size:0.85rem;opacity:0.6;display:block;margin-bottom:0.2rem;">📞 Phone</span>
+            <a href="#" style="font-size:0.87rem;opacity:0.85;">Call Now</a>
+          </li>
+          <li>
+            <span style="font-size:0.85rem;opacity:0.6;display:block;margin-bottom:0.2rem;">⏰ Hours</span>
+            <span style="font-size:0.87rem;opacity:0.85;">Mon–Fri: 7am – 6pm</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Childcare. ABN: [Your ABN]. All rights reserved.</p>
+      <p>23 Boundary Road, Strathfield NSW | Call Now</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// Page navigation
+function showPage(pageId) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Show target
+  document.getElementById('page-' + pageId).classList.add('active');
+  // Update nav
+  document.querySelectorAll('.nav-links a, #mnav-home, #mnav-programs, #mnav-about, #mnav-reviews, #mnav-contact').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + pageId);
+  if (navEl) navEl.classList.add('active');
+  const mnavEl = document.getElementById('mnav-' + pageId);
+  if (mnavEl) mnavEl.classList.add('active');
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Re-run reveal animations
+  setTimeout(runReveal, 100);
+  return false;
+}
+
+// Sticky header
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Mobile nav
+function openMobileNav() {
+  document.getElementById('mobile-nav').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+}
+function closeMobileNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+function runReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+}
+runReveal();
+
+// Form submit simulation
+function submitForm() {
+  alert('Thank you for your enquiry! The Childcare team will contact you within 1 business day to arrange your centre tour. We look forward to meeting your family! 🌱');
+}
+
+// Smooth hover on cards
+document.querySelectorAll('.service-card, .testimonial-card, .age-group-card').forEach(card => {
+  card.addEventListener('mouseenter', () => { card.style.transition = '300ms ease'; });
+});
+</script>
+</body>
+</html>
